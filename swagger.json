@@ -1,0 +1,251 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a Test Calculator. For Transfer To.",
+    "version": "1.0.0",
+    "title": "MegaSoft Calculator",
+    "contact": {
+      "email": "abdullahrahim87@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/calc",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/add": {
+      "post": {
+        "tags": [
+          "addition"
+        ],
+        "summary": "Add up to 10 numbers",
+        "description": "",
+        "operationId": "addition",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "numbers",
+            "in": "formData",
+            "description": "numbers should not be less than 2 and greater than 10",
+            "type": "array",
+            "collectionFormat": "multi",
+            "items": {
+              "type": "integer",
+              "minItems": 1
+            },
+            "minItems": 1,
+            "maxItems": 3
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/subtract": {
+      "post": {
+        "tags": [
+          "Subtraction"
+        ],
+        "summary": "Subtraction Between Two numbers",
+        "description": "",
+        "operationId": "subtraction",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "num1",
+            "in": "formData",
+            "description": "First Number",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "num2",
+            "in": "formData",
+            "description": "Second Number",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/multiply": {
+      "post": {
+        "tags": [
+          "Multiplication"
+        ],
+        "summary": "Multiplication Between Two numbers",
+        "description": "",
+        "operationId": "multiplication",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "num1",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "num2",
+            "in": "formData",
+            "description": "multiplier",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/sqrt": {
+      "post": {
+        "tags": [
+          "Square Root"
+        ],
+        "summary": "Square Root",
+        "description": "",
+        "operationId": "squareRoot",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "number",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/qrt": {
+      "post": {
+        "tags": [
+          "Quebic Root"
+        ],
+        "summary": "Quebic Root",
+        "description": "",
+        "operationId": "quebicRoot",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "number",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/factorials": {
+      "post": {
+        "tags": [
+          "Factorials"
+        ],
+        "summary": "Factorials",
+        "description": "",
+        "operationId": "Factorials",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "number",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/pow": {
+      "post": {
+        "tags": [
+          "Power"
+        ],
+        "summary": "Power",
+        "description": "",
+        "operationId": "Power",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "num1",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "num2",
+            "in": "formData",
+            "description": "multiplier",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+
+
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
