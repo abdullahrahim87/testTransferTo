@@ -39,6 +39,19 @@ const multiplyAction = (req, res, next) => {
     return res.send('Please input 2 numbers');
 };
 
+const divideAction = (req, res, next) => {
+    var dividend = req.body.dividend;
+    var divisor = req.body.divisor;
+
+
+    if(!isNaN(dividend) ||  !isNaN(divisor)){
+        var result = parseInt(dividend) / parseInt(divisor);
+        return res.json(result);
+    }
+    res.status(400);
+    return res.send('Please input 2 numbers parameters [dividend , divisor]');
+}
+
 const factorialsAction = (req, res, next) => {
 
     var num = req.body.number;
@@ -100,5 +113,6 @@ module.exports = {
     factorialsAction: factorialsAction,
     qrtAction: qrtAction,
     sqrtAction:sqrtAction,
-    powerAction: powerAction
+    powerAction: powerAction,
+    divideAction: divideAction
 }

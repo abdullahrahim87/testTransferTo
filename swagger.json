@@ -122,6 +122,41 @@
         }
       }
     },
+    "/divide": {
+      "post": {
+        "tags": [
+          "Divide"
+        ],
+        "summary": "Division Between Two numbers",
+        "description": "",
+        "operationId": "multiplication",
+        "consumes":["application/x-www-form-urlencoded"],
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "dividend",
+            "in": "formData",
+            "description": "Number",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "divisor",
+            "in": "formData",
+            "description": "multiplier",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
     "/sqrt": {
       "post": {
         "tags": [
@@ -229,7 +264,7 @@
           {
             "name": "num2",
             "in": "formData",
-            "description": "multiplier",
+            "description": "power",
             "type": "integer",
             "required": true
           }
