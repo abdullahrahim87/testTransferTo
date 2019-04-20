@@ -27,4 +27,5 @@ Password: test
 
 
 **Docker:**
-I tried out but there are some issues which I will fix later. 
+Some issues in completely running in container. 
+Still pending due to less time. I can complete it if needed. 

@@ -23,7 +23,7 @@
         "tags": [
           "addition"
         ],
-        "summary": "Add up to 10 numbers",
+        "summary": "Adding two numbers",
         "description": "",
         "operationId": "addition",
         "consumes":["application/x-www-form-urlencoded"],
