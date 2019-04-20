@@ -7,6 +7,7 @@ const swaggerUi = require('swagger-ui-express');
 
 const indexRouter = require('./routes/index');
 const calcRouter = require('./routes/calc');
+const statsRouter = require('./routes/stats');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const  app = express();
@@ -26,6 +27,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+var environmentRoot =  require('path').normalize(__dirname );
+
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
+app.use(express.static(environmentRoot + '/public'));
 
 app.use('/swagger-ui', express.static(path.join(__dirname, './node_modules/swagger-ui-dist')));
 app.use('/swagger.json', function(req, res){
@@ -37,6 +47,7 @@ app.use('/swagger', function(req, res){
 
 app.use('/', indexRouter);
 app.use('/calc', calcRouter);
+app.use('/stats', statsRouter);
 
 
 // catch 404 and forward to error handler
