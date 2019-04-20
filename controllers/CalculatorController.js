@@ -1,13 +1,11 @@
 const addAction = (req, res, next)=> {
-    var numbers = req.body.numbers;
-    if(numbers && numbers.length > 1 && numbers.length <= 10){
-        var sum = numbers.reduce(function(a, b) {
-            if( isNaN(a) || isNaN(b)){
-                res.send('Please input all the numbers');
-            }else{
-                return parseInt(a) + parseInt(b);
-            }
-        }, 0);
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
+
+    console.log("body",req);
+
+    if(!isNaN(num1) ||  !isNaN(num2)){
+        var sum = parseInt(num1) + parseInt(num2);
         return res.json(sum);
     }
     res.status(400);

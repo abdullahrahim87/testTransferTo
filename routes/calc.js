@@ -5,7 +5,7 @@ const middleWare = require('../middleware/index.js');
 const calculatorController = require('../controllers/CalculatorController');
 
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('respond with a resourcesss');
 });
 
 router.post('/add',middleWare, calculatorController.addAction);
