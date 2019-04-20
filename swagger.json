@@ -32,17 +32,18 @@
         ],
         "parameters" : [
           {
-            "name": "numbers",
+            "name": "num1",
             "in": "formData",
-            "description": "numbers should not be less than 2 and greater than 10",
-            "type": "array",
-            "collectionFormat": "multi",
-            "items": {
-              "type": "integer",
-              "minItems": 1
-            },
-            "minItems": 1,
-            "maxItems": 3
+            "description": "First Number",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "num2",
+            "in": "formData",
+            "description": "Second Number",
+            "type": "integer",
+            "required": true
           }
         ],
         "responses": {
