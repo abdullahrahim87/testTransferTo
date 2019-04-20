@@ -1,14 +1,29 @@
-# Use a lighter version of Node as a parent image
-FROM mhart/alpine-node:8.11.4
-# Set the working directory to /api
-WORKDIR /api
-# copy package.json into the container at /api
-COPY package*.json /api/
-# install dependencies
-RUN npm install
-# Copy the current directory contents into the container at /api
-COPY . /api/
-# Make port 80 available to the world outside this container
-EXPOSE 3000
-# Run the app when the container launches
+# Setup and build the client
+
+FROM node:9.4.0-alpine as client
+
+WORKDIR /usr/app/client/
+COPY client/package*.json ./
+RUN npm install -qy
+COPY client/ ./
+RUN npm run build
+
+
+# Setup the server
+
+FROM node:9.4.0-alpine
+
+WORKDIR /usr/app/
+COPY --from=client /usr/app/client/build/ ./client/build/
+
+WORKDIR /usr/app/server/
+COPY server/package*.json ./
+RUN npm install --global nodemon
+RUN npm install -qy
+COPY server/ ./
+
+ENV PORT 8000
+
+EXPOSE 8000
+
 CMD ["npm", "start"]
